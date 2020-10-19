@@ -1,0 +1,133 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAUVBMVEUAAABdu0Zdu0Zdu0Zdu0ZDhMVDhMVdu0ZDhMVdu0ZDhMVDhMVDhMVDhMVDhMVDhMVdu0ZDhMVdu0ZDhMVSjrOFsXK41DJvoo5gmKBKibz///+PyjyBAAAAEnRSTlMA7xBgcDDPz1Dfv68gn0AQMGBOVV7xAAAAAWJLR0QadWfkMgAAAGVJREFUGNN9jFkOgCAMRCsuuC8dRb3/RcUiCibaj0nm5XWIPo753WOScEyUdE7DhyueRcBmFvR5Qe4Vu1DAGECzvoXVWOIV5hJm261SsfKLqBvI7gmI0IqKjhzoC7c+QMBIE/3dAVozBrzHhoOmAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTA3LTEzVDE0OjQ0OjMzKzAwOjAwtzu00wAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0wMy0yM1QxNjozNDo1MSswMDowMGQD4m8AAAAASUVORK5CYII=" />
+<title>elegant - Sirepo</title>
+<style type="text/css">
+body {
+margin: 0;
+padding: 0;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.sr_ses_head {
+background-color: rgb(248, 248, 248);
+color: rgb(51, 122, 183);
+font-size: 18px;
+vertical-align: middle;
+border-color: rgb(231, 231, 231);
+border-bottom-width: 1px;
+border-style: solid;
+}
+.sr_ses_head img {
+margin: 5px 10px 5px 30px;
+height: 40px;
+vertical-align: middle;
+}
+.sr_ses_main {
+margin: 20px 10px 10px 30px;
+}
+.sr_ses_prompt {
+display: block;
+margin-bottom: 10px;
+}
+.sr_ses_server {
+width: 30em;
+margin-right: 5px;
+}
+.btn {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 2px;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+-ms-touch-action: manipulation;
+touch-action: manipulation;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+}
+.btn-primary {
+color: #fff;
+background-color: #337ab7;
+border-color: #2e6da4;
+}
+.btn-primary:hover {
+color: #fff;
+background-color: #286090;
+border-color: #204d74;
+}
+.form-control {
+height: 30px;
+padding: 5px 10px;
+font-size: 12px;
+line-height: 1.5;
+border-radius: 3px;
+display: inline-block;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+</style>
+<script type="text/javascript">
+var SIREPO=(function() {
+function validateServerName(serverName) {
+    serverName = serverName.toLowerCase();
+    serverName = serverName.replace(/\/$/, '');
+    if (serverName == 'sirepo') {
+        serverName = 'sirepo.com';
+    }
+    if (! (/^http(s)?:/).test(serverName)) {
+        serverName = 'https://' + serverName;
+    }
+    var m = serverName.match(/^http:\/\/(\w+\.)?sirepo\.com/);
+    if (m) {
+        serverName = 'https://' + (m[1] || '') + 'sirepo.com';
+    }
+    if (serverName == 'https://sirepo.com') {
+        serverName = 'https://www.sirepo.com';
+    }
+    return serverName;
+}
+return {
+    onSubmit: function (form) {
+        form.elements['server'].value = validateServerName(form.elements['server'].value);
+        form.action = form.elements['server'].value + "/import-archive";
+        return true;
+    },
+};
+})();
+</script>
+</head>
+<body>
+<div class="sr_ses_head">
+<img src="data:image/gif;base64,R0lGODlhMAAuAMZ0AABOkQBOkgBPkgFPkgFPkwFQkwJQkwJQlANRlARSlAZTlQdTlQhUlRBamRFamRJbmhRdmxhgnBphnhtinhxjnh1jnh5knx9knx9lnydqoyhroypspSttpDNzqDd1qUF8rlKItVOJtmCSu4O+PoO+P4S+PoS+P4S+QIS/QIW/QIW/QYW/Qoa/Qoa/Q4XAQYbAQobAQ4q+TofARIq+T4fARYjBRonBR4nBSIrBSIrBSYnCR4rCSIrCSYrCSovCSovCS4zCS4zDTIzDTY3DTo3ETY3ET47ET47EUI/EUY/EUo/FUZDFU5HGVZLGVZLGVpPGVpPHWJTHWJTHWZXHWZXHWpfGX5XIWZXIW5bIXJfIXZfIXpfJXJfJXZfJXpjJX5nJYJrJYZnKYZrKYprKY5rLYpvLZJzLZZzLZpzMZp/NaqDObaHObKHObaHObqLOb6PPcafRd6rTe67VgbLYif///////////////////////////////////////////////yH5BAEKAH8ALAAAAAAwAC4AAAf+gH+Cg4SFhmczMVWGjI2Oj4NbKpMqR5CXmIYplJOOIh8hmaJ/JJwqjBgLAQIBBBWjl0WcNoYTBQa4uQaibV5rjzQsKrSFGbrHCZgynLCCA8fHHpA+pj+wFALQuhaQy5w4sA7auhDdpsSiDeO5EpBdKJQmUrAb2esXl2MmIyVhzX8P1gX49w/AOA4Em4FgQCBXAQQREhLsoGDAAQ0SM2rcWCgNx2ZfRphAMaJFHEJz1Lz5aGiHqUliBBFJgQKeFpaCjGx6meKPlZ2TSOD885JTD2qmluAsSgnJi5dPljJVcUPJyyhSmVozxWPo06ImsAgKwuNG16FEi/pA26gMPE6fN9g+IhMFSBe5ePPilfOvDRs3EuHYSLFJxhRRPEwojkvwhCkTSDDBMCXjnzdTKy5d4Qml2duX8x4JKZp5FJWpMCBtfjkEVpSpRC4VZSRF8cgshkwwRXMpCVAVQgwteRmk0GpTNTKlMeIiyEpDRU9wKQTks4qzGp1Yp8S4EBMdWJp8zMG0tF4w2ycZ0TvIxksT7AlZN2EmPiEhRoygIxgIADs=" />
+<span>elegant - Sirepo</div>
+<div class="sr_ses_main"><span class="sr_ses_prompt">Self-Extracting Simulation: DispersionFree</span>
+<form onsubmit="SIREPO.onSubmit(this)" action="" method="post">
+<input class="form-control sr_ses_server" name="server" type="text" value="https://www.sirepo.com"/>
+<button class="btn btn-primary" type="submit">Send to Server</button>
+<input name="zip" type="hidden" value="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" />
+</form>
+</div>
+</body>
+</html>
